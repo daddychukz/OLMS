@@ -6,27 +6,23 @@
 module.exports = {
   up(queryInterface, Sequelize) {
     return queryInterface.createTable('histories', {
-      id: {
+      bookId: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        Reference: {
-          model: 'user',
-          key: 'userId'
+        references: {
+          model: 'books',
+          key: 'id'
         },
       },
-      bookId: {
-        type: Sequelize.INTEGER,
+      userId: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
         allowNull: false,
-        Reference: {
-          model: 'book',
-          key: 'bookId'
-        }
+        references: {
+          model: 'users',
+          key: 'id'
+        },
       },
       returned: {
         type: Sequelize.BOOLEAN,

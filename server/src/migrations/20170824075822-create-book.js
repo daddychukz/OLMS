@@ -10,13 +10,9 @@ module.exports = {
     return queryInterface.createTable('books', {
       id: {
         allowNull: false,
-        autoIncrement: true,
-        type: Sequelize.INTEGER
-      },
-      bookId: {
-        type: Sequelize.INTEGER,
         primaryKey: true,
-        allowNull: false
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       title: {
         type: Sequelize.STRING,
