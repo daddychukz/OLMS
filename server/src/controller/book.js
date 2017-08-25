@@ -1,15 +1,17 @@
-
 const Book = require('../models').book;
 
 /* Add new books */
 const create = (req, res) => Book
   .create({
+    bookId: req.body.bookId,
     title: req.body.title,
     author: req.body.author,
     category: req.body.category,
     units: req.body.units
   })
-  .then(book => res.status(200).send(book))
+  .then(book => res.status(200).send({
+    message: 'Book Successfully Added',
+    book }))
   .catch(err => res.status(400).send(err));
 
   /* Get all books in the library */
@@ -19,19 +21,18 @@ const retrieveAll = (req, res) => Book
   .catch(err => res.status(400).send(err));
 
   /* Get a Single Book */
-const retrieve = (req, res) => Book
-  .findById(req.params.bookId)
-  .then((book) => {
-    if (!book) {
-      return res.status(404).send({
-        message: 'Book Not Found!',
-      });
-    }
-    return res.status(200).send(book);
-  })
-  .catch(err => res.status(400).send(err));
+const retrieve = (req, res) => {
+  Book
+    .findById(req.params.bookId)
+    .then((book) => {
+      res.status(200).send(book);
+    })
+    .catch(() => res.status(404).send({
+      message: 'Book Not Found!'
+    }));
+};
 
-  /* Update Books */
+/* Update Books */
 const updateBook = (req, res) => {
   const updateFields = {};
   Book.findOne({
@@ -40,25 +41,15 @@ const updateBook = (req, res) => {
     },
   })
     .then((foundBook) => {
-      if (foundBook === null) {
-        return res.status(404).send({
-          message: 'This record does not exists!',
-        });
-      }
-
       if (req.body.title) {
         updateFields.title = req.body.title;
-      }
-
-      if (req.body.author) {
+      } else if (req.body.bookId) {
+        updateFields.bookId = req.body.bookId;
+      } else if (req.body.author) {
         updateFields.author = req.body.author;
-      }
-
-      if (req.body.category) {
+      } else if (req.body.category) {
         updateFields.category = req.body.category;
-      }
-
-      if (req.body.units) {
+      } else if (req.body.units) {
         updateFields.units = req.body.units;
       }
 
@@ -67,26 +58,26 @@ const updateBook = (req, res) => {
           message: 'Successfully Updated',
           updatedBook
         }));
-    });
+    })
+    .catch(() => res.status(404).send({
+      message: 'Record Not Found!'
+    }));
 };
 
 /* Delete a Book */
 const deleteBook = (req, res) => Book
   .findById(req.params.bookId)
   .then((book) => {
-    if (!book) {
-      return res.status(404).send({
-        message: 'This record was not found!',
-      });
-    }
-    return book
+    book
       .destroy()
-      .then(deletedBook => res.send({
+      .then(res.send({
         message: 'Record Successfully Deleted',
-        deletedBook
       }))
       .catch(error => res.status(400).send(error));
-  });
+  })
+  .catch(() => res.status(404).send({
+    message: 'Record Not Found!'
+  }));
 
   /* Export all methods */
 module.exports = {
