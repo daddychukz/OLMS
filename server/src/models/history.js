@@ -6,31 +6,27 @@
 
 module.exports = (sequelize, DataTypes) => {
   const history = sequelize.define('history', {
-    userId: {
-      type: DataTypes.INTEGER,
+    bookId: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      Reference: {
-        model: 'user',
-        key: 'userId'
+      references: {
+        model: 'books',
+        key: 'id'
       },
     },
-    bookId: {
-      type: DataTypes.INTEGER,
+    userId: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      Reference: {
-        model: 'book',
-        key: 'bookId'
-      }
+      references: {
+        model: 'users',
+        key: 'id'
+      },
     },
     returned: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
-    }
-  }, {
-    classMethods: {
-      associate(models) {
-        // associations can be defined here
-      }
     }
   });
   return history;

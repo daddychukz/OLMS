@@ -6,10 +6,11 @@
 
 module.exports = (sequelize, DataTypes) => {
   const book = sequelize.define('book', {
-    bookId: {
-      type: DataTypes.INTEGER,
+    id: {
+      allowNull: false,
       primaryKey: true,
-      allowNull: false
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
     },
     title: {
       type: DataTypes.STRING,
@@ -28,5 +29,16 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
   });
+  book.associate = (models) => {
+    // associations can be defined here
+    book.belongsToMany(models.user, {
+      through: models.history,
+      foreignKey: {
+        name: 'bookId',
+        allowNull: false
+      },
+      onDelete: 'CASCADE',
+    });
+  };
   return book;
 };

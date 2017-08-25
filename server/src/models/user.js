@@ -8,10 +8,11 @@ const bcrypt = require('bcrypt');
 
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
-    userId: {
-      type: DataTypes.INTEGER,
+    id: {
+      allowNull: false,
       primaryKey: true,
-      allowNull: false
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4
     },
     fullName: {
       type: DataTypes.STRING,
@@ -56,5 +57,16 @@ module.exports = (sequelize, DataTypes) => {
       newUser.password = bcrypt.hashSync(newUser.password, bcrypt.genSaltSync(8));
     }
   } });
+  user.associate = (models) => {
+    // associations can be defined here
+    user.belongsToMany(models.book, {
+      through: models.history,
+      foreignKey: {
+        name: 'userId',
+        allowNull: false,
+      },
+      onDelete: 'CASCADE',
+    });
+  };
   return user;
 };
