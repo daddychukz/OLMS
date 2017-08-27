@@ -3,7 +3,7 @@ const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 // const http = require('http');
-const routes = require('./routes');
+const routes = require('./routes/index');
 
 const app = express();
 
@@ -26,3 +26,4 @@ app.listen(port, () => {
   console.log(`The App is listening on port ${port}`);
 });
 
+module.exports = app;
