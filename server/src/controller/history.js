@@ -36,7 +36,9 @@ const borrowBook = (req, res) => {
           message: 'A book has been borrowed',
           borrowed
         }))
-        .catch(err => res.status(400).send(err));
+        .catch(() => res.status(404).send({
+          message: 'User not found!'
+        }));
     }
     )
     .catch(() => res.status(404).send({
