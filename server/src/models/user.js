@@ -16,11 +16,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     fullName: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Empty strings not allowed' }
+      }
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: { msg: 'Enter a Valid Email' },
+      }
     },
     sex: {
       type: DataTypes.STRING,
@@ -28,15 +35,31 @@ module.exports = (sequelize, DataTypes) => {
     },
     userName: {
       type: DataTypes.STRING,
+      unique: true,
       allowNull: false
     },
     phoneNumber: {
       type: DataTypes.BIGINT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        isNumeric: { msg: 'Must be Numeric' },
+        not: {
+          args: ['[a-z]', 'i'],
+          msg: 'Only Numeric Entries'
+        },
+        len: {
+          args: [11, 12],
+          msg: 'Phone number must be 11 characters of length'
+        },
+      }
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      len: {
+        args: [4, 5],
+        msg: 'Password must be between 4 to 5 characters at length'
+      }
     },
     memLevel: {
       type: DataTypes.STRING,

@@ -14,19 +14,31 @@ module.exports = (sequelize, DataTypes) => {
     },
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Field must not be Empty' }
+      }
     },
     author: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Field must not be Empty' }
+      }
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Field must not be Empty' }
+      }
     },
     units: {
       type: DataTypes.BIGINT,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Field must not be Empty' }
+      }
     },
   });
   book.associate = (models) => {
@@ -35,7 +47,7 @@ module.exports = (sequelize, DataTypes) => {
       through: models.history,
       foreignKey: {
         name: 'bookId',
-        allowNull: false
+        allowNull: false,
       },
       onDelete: 'CASCADE',
     });
