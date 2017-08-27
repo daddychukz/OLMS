@@ -13,7 +13,7 @@ const secret = process.env.SECRET;
 /* Register a User */
 const register = (req, res) => User
   .create({
-    userId: req.body.userId,
+    // userId: req.body.userId,
     fullName: req.body.fullName,
     email: req.body.email,
     sex: req.body.sex,
