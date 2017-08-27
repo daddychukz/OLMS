@@ -14,6 +14,7 @@ module.exports = {
           model: 'books',
           key: 'id'
         },
+        onDelete: 'CASCADE'
       },
       userId: {
         type: Sequelize.UUID,
@@ -23,6 +24,7 @@ module.exports = {
           model: 'users',
           key: 'id'
         },
+        onDelete: 'CASCADE'
       },
       returned: {
         type: Sequelize.BOOLEAN,
