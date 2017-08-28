@@ -20,9 +20,10 @@ const register = (req, res) => User
     userName: req.body.userName,
     phoneNumber: req.body.phoneNumber,
     password: req.body.password,
-    memLevel: req.body.memLevel
+    memLevel: req.body.memLevel,
+    isAdmin: req.body.isAdmin
   })
-  .then(regUser => res.send({
+  .then(regUser => res.status(201).send({
     message: 'User Successfully Registered',
     regUser
   }))
