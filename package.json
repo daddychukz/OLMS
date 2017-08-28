@@ -9,6 +9,7 @@
   "author": "daddychuks",
   "license": "ISC",
   "dependencies": {
+    "Faker": "^0.7.2",
     "bcrypt": "^1.0.2",
     "body-parser": "~1.17.1",
     "chai": "^4.1.1",
@@ -22,7 +23,8 @@
     "pg": "^7.2.0",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.7.2",
-    "sequelize-cli": "^2.8.0"
+    "sequelize-cli": "^2.8.0",
+    "supertest": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^4.4.1",
