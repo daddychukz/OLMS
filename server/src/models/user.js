@@ -47,10 +47,6 @@ module.exports = (sequelize, DataTypes) => {
           args: ['[a-z]', 'i'],
           msg: 'Only Numeric Entries'
         },
-        len: {
-          args: [11, 12],
-          msg: 'Phone number must be 11 characters of length'
-        },
       }
     },
     password: {
