@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a library management app",
   "scripts": {
-    "start": "node server/src/app.js",
+    "start": "node server/dist/app.js",
     "build": "babel ./server/src --watch -d ./server/dist",
     "test": "mocha ./server/tests/models/user --compilers js:babel-register"
   },
