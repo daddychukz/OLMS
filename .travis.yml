@@ -1,7 +1,14 @@
+
 language: node_js
 node_js:
-  - "6.11.1"
+- "6"
+services:
+- postgresql
   
+env:
+  global:
+    - export NODE_ENV=test
+    
 script:
   - npm test
   - npm install
