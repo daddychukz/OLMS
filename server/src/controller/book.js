@@ -1,4 +1,6 @@
-const Book = require('../models').book;
+import db from '../models';
+
+const Book = db.book;
 
 /* Add new books */
 const create = (req, res) => Book
@@ -80,7 +82,7 @@ const deleteBook = (req, res) => Book
   }));
 
   /* Export all methods */
-module.exports = {
+export default {
   create,
   retrieveAll,
   retrieve,

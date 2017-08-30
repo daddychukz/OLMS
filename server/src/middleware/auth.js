@@ -1,4 +1,5 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
+
 require('dotenv').config();
 
 const secret = process.env.SECRET;
@@ -39,6 +40,4 @@ const Auth = {
   }
 };
 
-module.exports = {
-  Auth
-};
+export default Auth;

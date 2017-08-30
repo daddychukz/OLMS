@@ -4,7 +4,7 @@
 * relationships, datatypes and constraints.
 */
 
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
   const book = sequelize.define('book', {
     id: {
       allowNull: false,

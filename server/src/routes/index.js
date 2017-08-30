@@ -1,9 +1,12 @@
-const router = require('express').Router();
+// const router = require('express').Router();
 
-const booksController = require('../controller/book');
-const userController = require('../controller/user');
-const requestController = require('../controller/history');
-const { Auth } = require('../middleware/auth');
+import express from 'express';
+import booksController from '../controller/book';
+import userController from '../controller/user';
+import requestController from '../controller/history';
+import Auth from '../middleware/auth';
+
+const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) =>
@@ -61,4 +64,4 @@ router.put('*', (req, res) => res.status(404).send(
   'Invalid Route...'
 ));
 
-module.exports = router;
+export default router;

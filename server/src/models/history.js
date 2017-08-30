@@ -4,7 +4,7 @@
 * relationships, datatypes and constraints.
 */
 
-module.exports = (sequelize, DataTypes) => {
+export default (sequelize, DataTypes) => {
   const history = sequelize.define('history', {
     bookId: {
       type: DataTypes.UUID,

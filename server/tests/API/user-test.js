@@ -1,12 +1,13 @@
 // /**
 //  * API Endpoint Tests
 //  */
+import request from 'supertest';
+import chai from 'chai';
+import app from '../../dist/app';
+import models from '../../dist/models';
+import fakeData from '../helpers/fakeData';
 
-const request = require('supertest');
-const app = require('../../src/app');
-const models = require('../../src/models/');
-const expect = require('chai').expect;
-const fakeData = require('../helpers/fakeData');
+const expect = chai.expect;
 
 let adminToken, userToken;
 

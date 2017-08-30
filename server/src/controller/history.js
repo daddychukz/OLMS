@@ -1,6 +1,8 @@
 
-const reqHistory = require('../models').history;
-const Book = require('../models').book;
+import db from '../models';
+
+const reqHistory = db.history;
+const Book = db.book;
 
 /* Check for users yet to return a book */
 const check = (req, res) => {
@@ -74,7 +76,7 @@ const returnBook = (req, res) => {
 };
 
 /* Exports all methods */
-module.exports = {
+export default {
   check,
   borrowBook,
   returnBook

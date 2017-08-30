@@ -2,11 +2,13 @@
 //  * API Endpoint Tests
 //  */
 
-const app = require('../../src/app');
-const models = require('../../src/models/');
-const expect = require('chai').expect;
-const fakeData = require('../helpers/fakeData');
+import chai from 'chai';
+import request from 'supertest';
+import app from '../../src/app';
+import models from '../../src/models';
+import fakeData from '../helpers/fakeData';
 
+const expect = chai.expect;
 let newUser;
 
 describe('Online Library Management System', () => {

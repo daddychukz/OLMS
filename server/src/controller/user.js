@@ -1,11 +1,8 @@
-// import bcrypt from 'bcrypt';
-// import jwt from 'jsonwebtoken';
-// import { users as User } from '../models/';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import db from '../models/';
 
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('../models').user;
-
+const User = db.user;
 require('dotenv').config();
 
 const secret = process.env.SECRET;
@@ -59,12 +56,7 @@ const login = (req, res) => {
     });
 };
 
-module.exports = {
+export default {
   register,
   login
 };
-
-// export {
-//   register,
-//   login
-// };
