@@ -4,7 +4,7 @@
   "description": "a library management app",
   "scripts": {
     "start": "node server/src/app.js",
-    "test": "mocha ./server/tests/test"
+    "test": "mocha ./server/tests/middleware/auth"
   },
   "author": "daddychuks",
   "license": "ISC",
