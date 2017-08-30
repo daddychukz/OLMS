@@ -28,6 +28,6 @@ build/Release
 # Debug log from npm
 npm-debug.log
 
-node_module/
+node_modules/
 dist/
 .env
