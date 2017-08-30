@@ -1,5 +1,4 @@
 // bringing in dependencies
-import http from 'http';
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
@@ -7,7 +6,7 @@ import routes from './routes/index';
 
 
 const app = express();
-const server = http.createServer(app);
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -24,7 +23,7 @@ app.set('port', port);
 
 // Turn on the server
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`The server is listening on port ${port}`);
 });
 
