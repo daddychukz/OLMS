@@ -1,6 +1,6 @@
 {
   "name": "hello-books-api",
-  "version": "1.0.0",
+  "version": "6.11.1",
   "description": "a library management app",
   "scripts": {
     "start": "node server/dist/app.js",
@@ -36,5 +36,8 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.1.0"
+  },
+    "engines": {
+    "node": "6.11.1"
   }
 }
