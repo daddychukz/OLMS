@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "a library management app",
   "scripts": {
-    "start": "node server/src/app.js",
-    "test": "mocha ./server/tests/middleware/auth"
+    "start": "node server/dist/app.js",
+    "build": "babel ./server/src --watch -d ./server/dist",
+    "test": "mocha ./server/tests/models/user-test --compilers js:babel-register"
   },
   "author": "daddychuks",
   "license": "ISC",
   "dependencies": {
     "Faker": "^0.7.2",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
     "bcrypt": "^1.0.2",
     "body-parser": "~1.17.1",
     "chai": "^4.1.1",
