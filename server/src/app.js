@@ -1,9 +1,9 @@
 // bringing in dependencies
-const express = require('express');
-const logger = require('morgan');
-const bodyParser = require('body-parser');
-// const http = require('http');
-const routes = require('./routes/index');
+import express from 'express';
+import logger from 'morgan';
+import bodyParser from 'body-parser';
+import routes from './routes/index';
+
 
 const app = express();
 
@@ -26,4 +26,4 @@ app.listen(port, () => {
   console.log(`The App is listening on port ${port}`);
 });
 
-module.exports = app;
+export default app;
