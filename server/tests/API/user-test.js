@@ -3,7 +3,7 @@
 //  */
 import request from 'supertest';
 import chai from 'chai';
-import app from '../../dist/app';
+import app from '../../../server';
 import models from '../../dist/models';
 import fakeData from '../helpers/fakeData';
 
