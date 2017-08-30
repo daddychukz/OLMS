@@ -1,5 +1,5 @@
 {
-  "name": "hello-books",
+  "name": "hello-books-api",
   "version": "1.0.0",
   "description": "a library management app",
   "scripts": {
