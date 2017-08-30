@@ -4,6 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _http = require('http');
+
+var _http2 = _interopRequireDefault(_http);
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -22,9 +26,9 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// bringing in dependencies
-var app = (0, _express2.default)();
+var app = (0, _express2.default)(); // bringing in dependencies
 
+var server = _http2.default.createServer(app);
 app.use((0, _morgan2.default)('dev'));
 app.use(_bodyParser2.default.json());
 app.use(_bodyParser2.default.urlencoded({ extended: false }));
@@ -40,8 +44,9 @@ app.set('port', port);
 // });
 
 // Turn on the server
-app.listen(port, function () {
-  console.log('The App is listening on port ' + port);
+
+server.listen(port, function () {
+  console.log('The server is listening on port ' + port);
 });
 
 exports.default = app;
