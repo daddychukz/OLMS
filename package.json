@@ -3,7 +3,7 @@
   "version": "6.11.1",
   "description": "a library management app",
   "scripts": {
-    "start": "node server/dist/app.js",
+    "start": "./node_modules/.bin/sequelize db:migrate && node ./server/dist/app.js",
     "build": "babel ./server/src --watch -d ./server/dist",
     "test": "mocha ./server/tests/models/user --compilers js:babel-register"
   },
