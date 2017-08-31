@@ -5,8 +5,8 @@
   "scripts": {
     "start": "./node_modules/.bin/sequelize db:migrate && node ./server/dist/app.js",
     "build": "babel ./server/src --watch -d ./server/dist",
-    "coverage": "node node_modules/.bin/istanbul cover _mocha -- -R spec",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "test": "nyc --reporter=html --reporter=text mocha ./server/tests/models/user --compilers js:babel-register"
   },
   "author": "daddychuks",
