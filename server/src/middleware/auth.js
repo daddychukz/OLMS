@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 require('dotenv').config();
 
-const secret = 'kuasdfasbchbs1231.';
+const secret = 'kuasdfasbchbs1231';
 
 const Auth = {
   // function to authenticate access to users with a token

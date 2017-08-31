@@ -21,7 +21,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var User = _models2.default.user;
 require('dotenv').config();
 
-var secret = process.env.SECRET;
+var secret = 'kuasdfasbchbs1231';
 
 /* Register a User */
 var register = function register(req, res) {

@@ -12,7 +12,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 require('dotenv').config();
 
-var secret = 'kuasdfasbchbs1231.';
+var secret = 'kuasdfasbchbs1231';
 
 var Auth = {
   // function to authenticate access to users with a token

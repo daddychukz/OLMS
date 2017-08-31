@@ -5,7 +5,7 @@ import db from '../models/';
 const User = db.user;
 require('dotenv').config();
 
-const secret = process.env.SECRET;
+const secret = 'kuasdfasbchbs1231';
 
 /* Register a User */
 const register = (req, res) => User
