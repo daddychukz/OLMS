@@ -29,7 +29,7 @@ build/Release
 npm-debug.log
 
 node_modules/
-dist/
+server/dist/
 .env
 .nyc_output/
 .coveralls.yml
