@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/daddychukz/OLMS.svg?branch=refactored)](https://travis-ci.org/daddychukz/OLMS)
 [![Coverage Status](https://coveralls.io/repos/github/daddychukz/OLMS/badge.svg?branch=refactored)](https://coveralls.io/github/daddychukz/OLMS?branch=refactored)
-[![Code Climate](https://codeclimate.com/github/jattoabdul/andela-bootcamp-postit.png)](https://codeclimate.com/github/jattoabdul/andela-bootcamp-postit)
+[![Code Climate](https://codeclimate.com/github/daddychukz/OLMS.png)](https://codeclimate.com/github/daddychukz/OLMS)
 
 
 # HELLO BOOKS LIBRARY MANAGEMENT SYSTEM
