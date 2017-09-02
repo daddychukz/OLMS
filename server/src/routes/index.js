@@ -95,7 +95,7 @@ router.get('/', (req, res) =>
 // Register a new User
 /**
 * @swagger
-* /api/users/signup:
+* /api/v1/users/signup:
 *   post:
 *     tags:
 *       - Users
@@ -113,7 +113,7 @@ router.get('/', (req, res) =>
 *       200:
 *         description: Successfully Registered
 */
-router.post('/api/users/signup', userController.register);
+router.post('/api/v1/users/signup', userController.register);
 
 // Login route
 /**
