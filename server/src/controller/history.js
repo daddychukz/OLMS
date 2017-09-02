@@ -58,6 +58,7 @@ const returnBook = (req, res) => {
     },
   })
     .then((foundUser) => {
+      req.body.returned = true;
       if (req.body.returned) {
         updateFields.returned = req.body.returned;
       }
